@@ -57,23 +57,37 @@ def test_calculate_caps_reliability_when_votes_are_above_threshold() -> None:
     assert result.usefulness == pytest.approx(expected_usefulness)
 
 
-@pytest.mark.parametrize(
-    ("text", "expected_factor"),
-    [
-        ("Норм", 0.85),
-        (None, 0.7),
-        ("   ", 0.7),
-    ],
-)
-def test_calculate_returns_text_factor_by_text_presence(
-    text: str | None, expected_factor: float
-) -> None:
+def test_calculate_returns_text_factor_for_short_non_empty_text() -> None:
     service = _build_service()
     review = Review(
         reactions=ReviewReactions(likes=10, dislikes=2),
-        content=ReviewContent(text=text),
+        content=ReviewContent(text="Норм"),
     )
 
     result = service.calculate(review)
 
-    assert result.text_factor == expected_factor
+    assert result.text_factor == 0.85
+
+
+def test_calculate_returns_text_factor_for_none_text() -> None:
+    service = _build_service()
+    review = Review(
+        reactions=ReviewReactions(likes=10, dislikes=2),
+        content=ReviewContent(text=None),
+    )
+
+    result = service.calculate(review)
+
+    assert result.text_factor == 0.7
+
+
+def test_calculate_returns_text_factor_for_blank_text() -> None:
+    service = _build_service()
+    review = Review(
+        reactions=ReviewReactions(likes=10, dislikes=2),
+        content=ReviewContent(text="   "),
+    )
+
+    result = service.calculate(review)
+
+    assert result.text_factor == 0.7
