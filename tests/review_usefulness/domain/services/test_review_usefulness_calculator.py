@@ -3,6 +3,7 @@ import pytest
 from review_usefulness.domain.services.review_usefulness_calculator import ReviewUsefulnessCalculator
 from usefulness_kernel.domain.value_objects.review import Review, ReviewContent, ReviewReactions
 
+
 def _build_service() -> ReviewUsefulnessCalculator:
     return ReviewUsefulnessCalculator.build()
 
