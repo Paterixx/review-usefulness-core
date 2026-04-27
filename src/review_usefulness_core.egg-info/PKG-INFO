@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: review-usefulness-core
+Version: 0.1.0
+Summary: Shared business logic for review usefulness calculation
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+
+# review-usefulness-core
+
+Общая Python-библиотека с бизнес-логикой расчёта полезности отзывов для сортировок.
+
+## Возможности
+Сейчас библиотека содержит:
+- расчёт полезности отзыва `P` на основе likes/dislikes
+- учёт текстового фактора для ранжирования при равных или близких значениях `P`
+
+## Структура
+```text
+src/review_usefulness/
+src/usefulness_kernel/
+```
+
+## Установка для локальной разработки
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e .
+```

@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/review_usefulness/__init__.py
+src/review_usefulness/domain/policies/usefulness_aggregation.py
+src/review_usefulness/domain/services/review_usefulness_calculator.py
+src/review_usefulness/domain/value_objects/configuration.py
+src/review_usefulness/domain/value_objects/review_usefulness_result.py
+src/review_usefulness_core.egg-info/PKG-INFO
+src/review_usefulness_core.egg-info/SOURCES.txt
+src/review_usefulness_core.egg-info/dependency_links.txt
+src/review_usefulness_core.egg-info/requires.txt
+src/review_usefulness_core.egg-info/top_level.txt
+src/usefulness_kernel/__init__.py
+src/usefulness_kernel/domain/exceptions.py
+src/usefulness_kernel/domain/value_objects/review.py
